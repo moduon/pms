@@ -96,7 +96,8 @@ class PmsCheckinPartner(models.Model):
                         "document_country_id",
                     ]
                 )
-            # Checkins with age lower than 18 must have a relationship with another checkin partner
+            # Checkins with age lower than 18 must have a relationship with
+            # another checkin partner
             if birthdate_date > fields.Date.today() - relativedelta(years=18):
                 mandatory_fields.extend(
                     [

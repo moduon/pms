@@ -783,7 +783,9 @@ class PmsCheckinPartner(models.Model):
         dummy_checkins = reservation.checkin_partner_ids.filtered(
             lambda c: c.state == "dummy"
         )
-        if len(reservation.checkin_partner_ids) < (reservation.adults + reservation.children):
+        if len(reservation.checkin_partner_ids) < (
+            reservation.adults + reservation.children
+        ):
             return super(PmsCheckinPartner, self).create(vals)
         if len(dummy_checkins) > 0:
             dummy_checkins[0].write(vals)
@@ -822,8 +824,6 @@ class PmsCheckinPartner(models.Model):
             "residence_state_id",
             "document_country_id",
             "document_type",
-
-
         ]
         return manual_fields
 
