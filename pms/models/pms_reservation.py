@@ -2630,9 +2630,21 @@ class PmsReservation(models.Model):
                 self.env["pms.service"].create(
                     {
                         "reservation_id": record.id,
+                        "folio_id": record.folio_id.id,
                         "product_id": product.id,
-                        "quantity": quantity,
-                        "price_unit": price,
+                        "name": product.name,
+                        "service_line_ids": [
+                            (
+                                0,
+                                0,
+                                {
+                                    "product_id": product.id,
+                                    "day_qty": quantity,
+                                    "price_unit": price,
+                                    "date": record.checkin,
+                                },
+                            )
+                        ],
                     }
                 )
 
@@ -2690,7 +2702,18 @@ class PmsReservation(models.Model):
 
                 service.write(
                     {
-                        "quantity": quantity,
-                        "price_unit": price,
+                        "service_line_ids": [
+                            (5, 0, 0),
+                            (
+                                0,
+                                0,
+                                {
+                                    "product_id": product.id,
+                                    "day_qty": quantity,
+                                    "price_unit": price,
+                                    "date": record.checkin,
+                                },
+                            ),
+                        ]
                     }
                 )
