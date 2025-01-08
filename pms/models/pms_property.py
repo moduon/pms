@@ -895,6 +895,11 @@ class PmsProperty(models.Model):
         self.ensure_one()
         partner = self.env["res.partner"].browse(partner_invoice_id)
         if (
+            self.company_id.partner_id.id == partner.id
+            and self.company_id.self_billed_journal_id
+        ):
+            return self.company_id.self_billed_journal_id
+        if (
             not partner
             or partner.id == self.env.ref("pms.various_pms_partner").id
             or (
