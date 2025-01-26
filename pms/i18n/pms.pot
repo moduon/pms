@@ -8225,6 +8225,7 @@ msgstr ""
 
 #. module: pms
 #: model:ir.model.fields,field_description:pms.field_pms_availability_plan__pms_pricelist_ids
+#: model:ir.model.fields,field_description:pms.field_pms_board_service_room_type__pricelist_ids
 #: model:ir.model.fields,field_description:pms.field_pms_sale_channel__product_pricelist_ids
 #: model:ir.ui.menu,name:pms.pricelist_menu
 msgid "Pricelists"
@@ -8243,6 +8244,11 @@ msgstr ""
 #. module: pms
 #: model:ir.model.fields,help:pms.field_pms_availability_plan__pms_pricelist_ids
 msgid "Pricelists of the availability plan "
+msgstr ""
+
+#. module: pms
+#: model:ir.model.fields,help:pms.field_pms_board_service_room_type__pricelist_ids
+msgid "Pricelists where this Board Service is available"
 msgstr ""
 
 #. module: pms
